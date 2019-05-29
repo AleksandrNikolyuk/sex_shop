@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/local.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/form.css" />
+</head>
+<body class="bg-auth">
+
+    <div class="page-wrapper">
+        <div class="col-lg-4">
+          <div class="panel-body">
+            <h2 class="text-white">Registration</h2>
+            <hr/>
+              <% if (error) { %>
+              <div class="row">
+                  <div class="col-lg-12">
+                      <div class="alert alert-danger">
+                          <strong>Error!</strong> <%= error %>
+                      </div>
+                  </div>
+              </div>
+              <% } %>
+              <div class="formContainer">
+                <form class= "formBlock" action="" method="post" role="form">
+                    <div class="blockInfo">
+                      <input class="inputtext" type="text" name="name" value="<%= data.name %>" maxlength="40" placeholder="Name">
+                      <input class="inputtext" type="text" name="surname" value="<%= data.surname %>" maxlength="40" placeholder="Surname">
+                      <input class="inputtext" type="text" name="email" value="<%= data.email %>" maxlength="200" placeholder="E-mail">
+                      <select class="inputtext" name="countryId">
+                        <option value="">Choose your country</option>
+                        <% countries.forEach(function(country) { %>
+                          <% if (data.countryId === country.id) { %>
+                            <option value="<%= country.id %>" selected><%= country.name %></option>
+                          <% } else { %>
+                            <option value="<%= country.id %>"><%= country.name %></option>
+                          <% } %>
+                        <% }); %>
+                      </select>
+                      <input class="inputtext" type="text" name="phone" value="<%= data.phone %>" maxlength="15" placeholder="Phone number, format: (XXX) XXX-XX-XX">
+                      <input class="inputtext" type="text" name="birthday" value="<%= data.birthday %>" maxlength="10" placeholder="Birthday, format: YYYY-MM-DD">
+                      <input class="inputtext" type="password" name="password" value="" maxlength="30" placeholder="Your password">
+                      <input class="inputtext" type="password" name="passwordRetype" value="" maxlength="30" placeholder="Confirm password">
+                    </div>
+                    <div class="blockSubmit">
+                      <button class="button" type="submit" class="btn btn-success">Register</button>
+                      <a class="button" href="/login" class="btn btn-default">Go To Login Page</a>
+                    </div>
+                </form>
+              </div>
+          </div>
+        </div>
+      </div>
+
+<script src="/javascripts/register.js"></script>
+</body>
+</html>

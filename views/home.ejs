@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= __('SexShop') %></title>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <meta charset='utf-8'>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        <link rel='stylesheet' type='text/css' href='/stylesheets/style.css'>
+    </head>
+    <body>
+      <div class='wrapper'>
+        <header class='header'>   
+          <div class='header-top'>
+            <nav class='nav container'>
+              <ul>
+                <li><a href='#' class='link-block'><%= __('AboutUs') %></a></li>
+                <li><a href='#' class='link-block'><%= __('ShippingPay') %></a></li>
+                <li><a href='#' class='link-block'><%= __('Contacts') %></a></li>
+              </ul>
+              <ul>
+                <li class='choosed-language'>
+                  <div class='language '>
+                    <img src='/images/ru.svg' alt=''>
+                    <a href='#' class='change-lang link-block'><%= __(locale) %></a>
+                  </div>
+                  <div class='locales '>
+                    <ul class='locales-list'>
+                      <% locales.forEach(function(locale) { %>
+                        <li data-locale='<%= locale %>'>
+                          <a href='/home/catalog/<%= locale %>'><%= __(locale) %></a>
+                        </li>
+                      <% }); %>
+                    </ul>
+                  </div>
+                </li>
+                <li><a href='/login' class='link-block'><%= __('LogIn') %></a></li>
+                <li><a href='/register' class='link-block'><%= __('Register') %></a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class='header-bottom'>
+            <div class='menu container'>
+              <div class='logo'>
+                <a href='/home' class='link-logo link-block'>
+                  <img src='/images/logo.svg'>
+                </a>
+              </div>
+              <div class='products-catalog drop-down-menu'>
+                <p><%= __('Catalog') %></p>
+                <div class='toogle'>
+                  <div class='toogle-line'></div>
+                  <div class='toogle-line'></div>
+                  <div class='toogle-line'></div>
+                </div>
+                <!-- in the menu will be superCategories with categories in the submenu -->
+              </div>
+              <form class='search'>
+                <!-- <p><%= __('Search') %></p> -->
+                <input class="search_text" type="text" placeholder="<%= __('Search') %>">
+                <button type='submit' class='search-btn'><img src="images/search.svg" /></button>
+              </form>
+              <a class='linc-block favorites-icon' href='#'><!-- /user.favorites -->
+                <img src="images/heart.svg" alt="">
+                <div class='menu-amount'><span>4</span></div> <!-- user.favorites.length -->
+              </a>
+              <div class='cart'>
+                <a class='linc-block cart-icon' href='#'>
+                  <img src="images/brasket.svg" alt="">
+                  <div class='menu-amount'><span>4</span></div> <!-- localStorage.userCart.length -->
+                </a>
+                <div class='cart-info'>
+                  <p><%= __('Your bag') %>: </p>
+                  <p><span><%= __('goods') %> (4)</span></p> <!-- localStorage.userCart.length -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+      </div>
+      <script src='/javascripts/lang.js'></script>
+			<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+			
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/local.css" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/form.css" />
+</head>
+<body class="bg-auth">
+  <div class="page-wrapper">
+    <div class="col-lg-4">
+      <div class="panel-body">
+        <h2 class="text-white">Log In</h2>
+        <hr/>
+          <% if (error) { %>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="alert alert-danger">
+                <strong>Error!</strong> <%= error %>
+              </div>
+            </div>
+          </div>
+          <% } %>
+          <div class="formContainer">
+            <form class= "formBlock" action="" method="post" role="form">
+              <div class="blockInfo">
+                <input class="inputtext" type="text" name="email" value="<%= data.email %>" maxlength="200" placeholder="E-mail">
+                <input class="inputtext" type="password" name="password" value="" maxlength="30" placeholder="Password">
+              </div>
+              <div class="blockSubmit">
+                <button class="button" type="submit" >Log In</button>
+                <a class="button" href="/register" >Register</a>
+              </div>
+            </form>
+          </div> <!-- formContainer -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/javascripts/login.js"></script>
+
+</body>
+</html>
