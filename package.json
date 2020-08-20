@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "ajv": "^6.10.0",
-    "bcrypt": "^3.0.5",
+    "bcrypt": "^5.0.0",
     "cookie-parser": "~1.4.3",
     "cross-env": "^5.2.0",
     "debug": "~2.6.9",
