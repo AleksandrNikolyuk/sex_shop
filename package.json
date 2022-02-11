@@ -6,7 +6,7 @@
     "start": "cross-env NODE_PATH=. node ./bin/www"
   },
   "dependencies": {
-    "ajv": "^6.10.0",
+    "ajv": "^6.12.3",
     "bcrypt": "^3.0.5",
     "cookie-parser": "~1.4.3",
     "cross-env": "^5.2.0",
